@@ -13,8 +13,8 @@
         .bg-electric-blue { background-color: #5D8BFF; }
         
         /* Mobile Menu State */
-        #mobile-menu { display: none; }
-        #mobile-menu.active { display: flex; }
+        #mobile-menu { display: none; opacity: 0; transition: opacity 0.3s ease; }
+        #mobile-menu.active { display: flex; opacity: 1; }
 
         .hero-bg {
             background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.95)), 
@@ -89,7 +89,7 @@
                 <a href="#categories" class="text-[10px] font-black uppercase text-gray-400 italic hover:text-white transition tracking-widest">Catalog</a>
                 <a href="#action-plan" class="text-[10px] font-black uppercase text-gray-400 italic hover:text-white transition tracking-widest">The Plan</a>
                 <a href="#contact" class="text-[10px] font-black uppercase text-electric-blue italic tracking-widest">Get Quote</a>
-                <a href="https://wa.me/18329181825" target="_blank" class="bg-[#25D366] text-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase italic">WhatsApp</a>
+                <a href="https://wa.me/18329181825" target="_blank" class="bg-[#25D366] text-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase italic hover:scale-105 transition">WhatsApp</a>
             </div>
         </div>
         
@@ -110,8 +110,8 @@
             <h1 class="text-6xl md:text-9xl font-black uppercase italic leading-[0.9] mb-8">SUPPLY. <br> <span class="text-electric-blue">DELIVERED.</span></h1>
             <p class="text-gray-400 text-xl max-w-xl mb-12 italic border-l-2 border-electric-blue pl-6">Direct logistics from our Houston hub to your storefront.</p>
             <div class="flex flex-col sm:flex-row gap-4">
-                <a href="tel:8329181825" class="bg-white text-black text-center px-12 py-5 rounded-2xl font-black uppercase italic">Call Office</a>
-                <a href="#contact" class="border border-white/20 text-white text-center px-12 py-5 rounded-2xl font-black uppercase italic">Request Quote</a>
+                <a href="tel:8329181825" class="bg-white text-black text-center px-12 py-5 rounded-2xl font-black uppercase italic hover:bg-electric-blue hover:text-white transition">Call Office</a>
+                <a href="#contact" class="border border-white/20 text-white text-center px-12 py-5 rounded-2xl font-black uppercase italic hover:bg-white hover:text-black transition">Request Quote</a>
             </div>
         </div>
     </header>
@@ -192,45 +192,45 @@
                     <h2 class="text-5xl font-black uppercase italic mb-4">Houston <span class="text-electric-blue">Hub</span></h2>
                     <p class="text-gray-400 italic text-lg mb-10 hub-desc">Strategically positioned to anchor our 48-hour delivery promise.</p>
                     <div class="rounded-[2.5rem] overflow-hidden h-[450px] border border-white/10 w-full">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443089.15546255675!2d-95.70114979848501!3d29.8169993203998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000" width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) invert(0.9);" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221503.7745722303!2d-95.54483733072232!3d29.835502187648356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) invert(0.9);" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
                 <div class="lg:col-span-7 bento-item !bg-zinc-950 w-full" data-aos="fade-left">
                     <h3 class="text-3xl font-black uppercase italic mb-10 text-electric-blue">Request A Quote</h3>
-<form action="https://formspree.io/f/xzdjorbb" method="POST" class="space-y-5">
-    <input type="text" name="_gotcha" style="display:none">
+                    <form action="https://formspree.io/f/xzdjorbb" method="POST" autocomplete="off" class="space-y-5">
+                        <input type="text" name="_gotcha" style="display:none">
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <input type="text" name="Owner_Name" placeholder="Owner Name" class="input-field" required>
-        <input type="text" name="Business_Name" placeholder="Business Name" class="input-field" required>
-    </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="text" name="Owner_Name" placeholder="Owner Name" class="input-field" required>
+                            <input type="text" name="Business_Name" placeholder="Business Name" class="input-field" required>
+                        </div>
 
-    <input type="text" name="Address" placeholder="Business Street Address" class="input-field" required>
+                        <input type="text" name="Address" placeholder="Business Street Address" class="input-field" required>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <input type="email" name="Email" placeholder="Email Address" class="input-field" required>
-        <input type="tel" name="Phone" placeholder="Phone Number" class="input-field" required>
-    </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="email" name="Email" placeholder="Email Address" class="input-field" required>
+                            <input type="tel" name="Phone" placeholder="Phone Number" class="input-field" required>
+                        </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <select name="Business_Type" class="input-field bg-zinc-900 text-gray-400" required>
-            <option value="" disabled selected>Business Type</option>
-            <option value="Supermarket">Supermarket</option>
-            <option value="Restaurant">Restaurant</option>
-            <option value="Wholesaler">Wholesaler</option>
-            <option value="Convenience Store">Convenience Store</option>
-        </select>
-        <input type="text" name="Monthly_Volume" placeholder="Monthly Units Volume" class="input-field">
-    </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <select name="Business_Type" class="input-field bg-zinc-900 text-gray-400" required>
+                                <option value="" disabled selected>Business Type</option>
+                                <option value="Supermarket">Supermarket</option>
+                                <option value="Restaurant">Restaurant</option>
+                                <option value="Wholesaler">Wholesaler</option>
+                                <option value="Convenience Store">Convenience Store</option>
+                            </select>
+                            <input type="text" name="Monthly_Volume" placeholder="Monthly Units Volume" class="input-field">
+                        </div>
 
-    <textarea name="Message" rows="3" placeholder="Additional details..." class="input-field"></textarea>
+                        <textarea name="Message" rows="3" placeholder="Additional details..." class="input-field"></textarea>
 
-    <input type="hidden" name="_next" value="https://carlosmelliot.github.io/luz-ezer-imports/">
+                        <input type="hidden" name="_next" value="https://carlosmelliot.github.io/luz-ezer-imports/">
 
-    <button type="submit" class="w-full bg-electric-blue text-white py-5 rounded-2xl font-black uppercase italic hover:bg-white hover:text-black transition-all">
-        Submit Request
-    </button>
-</form>
+                        <button type="submit" class="w-full bg-electric-blue text-white py-5 rounded-2xl font-black uppercase italic hover:bg-white hover:text-black transition-all">
+                            Submit Request
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -244,27 +244,26 @@
     <script>
         AOS.init({ duration: 1000, once: true });
 
-        // Robust Burger Menu Logic
+        // Mobile Menu Logic
         const burgerBtn = document.getElementById('burger-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         burgerBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            const isOpen = mobileMenu.classList.contains('active');
-            if (isOpen) {
-                mobileMenu.classList.remove('active');
-                setTimeout(() => mobileMenu.classList.add('hidden'), 200);
-            } else {
+            if (mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.remove('hidden');
                 setTimeout(() => mobileMenu.classList.add('active'), 1);
+            } else {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
             }
         });
 
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
-                mobileMenu.classList.add('hidden');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
             });
         });
 
@@ -272,6 +271,13 @@
             document.querySelectorAll('.shuffle-card').forEach(c => c.classList.remove('is-active'));
             card.classList.add('is-active');
         }
+
+        // --- THE FIX: RESET FORM ON BACK BUTTON ---
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                document.querySelectorAll('form').forEach(form => form.reset());
+            }
+        };
     </script>
 </body>
 </html>
