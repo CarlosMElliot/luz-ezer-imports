@@ -197,30 +197,40 @@
                 </div>
                 <div class="lg:col-span-7 bento-item !bg-zinc-950 w-full" data-aos="fade-left">
                     <h3 class="text-3xl font-black uppercase italic mb-10 text-electric-blue">Request A Quote</h3>
-                    <form action="https://formspree.io/f/xzdjorbb" method="POST" class="space-y-5">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <input type="text" name="_gotcha" style="display:none">
-                            <input type="text" placeholder="Owner Name" class="input-field" required>
-                            <input type="text" placeholder="Business Name" class="input-field" required>
-                        </div>
-                        <input type="text" placeholder="Business Street Address" class="input-field" required>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <input type="email" placeholder="Email Address" class="input-field" required>
-                            <input type="tel" placeholder="Phone Number" class="input-field" required>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                            <select class="input-field bg-zinc-900 text-gray-400">
-                                <option disabled selected>Business Type</option>
-                                <option>Supermarket</option>
-                                <option>Restaurant</option>
-                                <option>Wholesaler</option>
-                                <option>Convenience Store</option>
-                            </select>
-                            <input type="text" placeholder="Monthly Units Volume" class="input-field">
-                        </div>
-                        <textarea rows="3" placeholder="Additional details..." class="input-field"></textarea>
-                        <button type="submit" class="w-full bg-electric-blue text-white py-5 rounded-2xl font-black uppercase italic hover:bg-white hover:text-black transition-all">Submit Request</button>
-                    </form>
+<form action="https://formspree.io/f/xzdjorbb" method="POST" class="space-y-5">
+    <input type="text" name="_gotcha" style="display:none">
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <input type="text" name="Owner_Name" placeholder="Owner Name" class="input-field" required>
+        <input type="text" name="Business_Name" placeholder="Business Name" class="input-field" required>
+    </div>
+
+    <input type="text" name="Address" placeholder="Business Street Address" class="input-field" required>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <input type="email" name="Email" placeholder="Email Address" class="input-field" required>
+        <input type="tel" name="Phone" placeholder="Phone Number" class="input-field" required>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <select name="Business_Type" class="input-field bg-zinc-900 text-gray-400" required>
+            <option value="" disabled selected>Business Type</option>
+            <option value="Supermarket">Supermarket</option>
+            <option value="Restaurant">Restaurant</option>
+            <option value="Wholesaler">Wholesaler</option>
+            <option value="Convenience Store">Convenience Store</option>
+        </select>
+        <input type="text" name="Monthly_Volume" placeholder="Monthly Units Volume" class="input-field">
+    </div>
+
+    <textarea name="Message" rows="3" placeholder="Additional details..." class="input-field"></textarea>
+
+    <input type="hidden" name="_next" value="https://carlosmelliot.github.io/luz-ezer-imports/">
+
+    <button type="submit" class="w-full bg-electric-blue text-white py-5 rounded-2xl font-black uppercase italic hover:bg-white hover:text-black transition-all">
+        Submit Request
+    </button>
+</form>
                 </div>
             </div>
         </div>
