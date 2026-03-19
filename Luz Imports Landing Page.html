@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luz Ezer Imports | Houston Logistics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #000000; color: #FFFFFF; overflow-x: hidden; }
+        .text-electric-blue { color: #5D8BFF; }
+        .bg-electric-blue { background-color: #5D8BFF; }
+        
+        /* Mobile Menu State */
+        #mobile-menu { display: none; }
+        #mobile-menu.active { display: flex; }
+
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.95)), 
+                        url('https://images.unsplash.com/photo-1553413077-190dd305871c?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover; background-position: center;
+        }
+
+        .bento-item {
+            background: #0c0c0c; border: 1px solid #1a1a1a; border-radius: 2rem;
+            padding: 2.5rem; display: flex; flex-direction: column;
+        }
+
+        /* --- INTERACTIVE SHUFFLE DECK --- */
+        .deck-wrapper { position: relative; height: 500px; width: 100%; max-width: 450px; }
+        .shuffle-card {
+            position: absolute; inset: 0; border-radius: 1.5rem; overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1); transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            background-size: cover !important; background-position: center !important;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.6); cursor: pointer;
+        }
+        .card-1 { transform: rotate(-4deg) translate(-15px, -15px); z-index: 10; }
+        .card-2 { transform: rotate(3deg) translate(10px, 10px); z-index: 9; }
+        .card-3 { transform: rotate(-2deg) translate(25px, 25px); z-index: 8; }
+        .card-4 { transform: rotate(5deg) translate(40px, 40px); z-index: 7; }
+
+        .deck-wrapper:hover .card-1 { transform: rotate(-14deg) translate(-180px, -40px); }
+        .deck-wrapper:hover .card-2 { transform: rotate(-6deg) translate(-70px, -20px); }
+        .deck-wrapper:hover .card-3 { transform: rotate(6deg) translate(70px, 20px); }
+        .deck-wrapper:hover .card-4 { transform: rotate(14deg) translate(180px, 40px); }
+
+        .shuffle-card.is-active {
+            z-index: 50 !important; transform: scale(1.08) rotate(0deg) translate(0, -30px) !important;
+            border-color: #5D8BFF; box-shadow: 0 0 50px rgba(93, 139, 255, 0.4);
+        }
+
+        .category-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 50%);
+            position: absolute; inset: 0; display: flex; align-items: flex-end; padding: 2rem;
+        }
+
+        .input-field {
+            background-color: #0c0c0c; border: 1px solid #222; border-radius: 1rem;
+            padding: 1rem 1.25rem; font-size: 0.875rem; outline: none; color: white; width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: row !important; justify-content: space-between !important; }
+            .logo-wrap { order: 2; }
+            .burger-wrap { order: 1; }
+            .max-w-7xl { display: flex; flex-direction: column; align-items: center; text-align: center; }
+            h1, h2, h3, p, .cat-desc, .hub-desc { text-align: center !important; }
+            .deck-wrapper { height: auto; max-width: 100%; display: flex; flex-direction: column; gap: 1.5rem; }
+            .shuffle-card { position: relative; height: 350px; transform: none !important; }
+            .shuffle-card.is-active { transform: none !important; }
+        }
+    </style>
+</head>
+<body id="top" class="antialiased">
+
+    <nav class="fixed w-full z-50 bg-black/95 backdrop-blur-xl border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center nav-container">
+            <div class="burger-wrap md:hidden">
+                <button id="burger-btn" class="text-white p-2">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+            <div class="logo-wrap">
+                <a href="#top"><img src="https://i.ibb.co/Vp6YjXq/image-5206ba.png" alt="Luz Ezer" class="h-6 w-auto"></a>
+            </div>
+            <div class="hidden md:flex items-center gap-8 ml-auto">
+                <a href="#mission" class="text-[10px] font-black uppercase text-gray-400 italic hover:text-white transition tracking-widest">Mission</a>
+                <a href="#categories" class="text-[10px] font-black uppercase text-gray-400 italic hover:text-white transition tracking-widest">Catalog</a>
+                <a href="#action-plan" class="text-[10px] font-black uppercase text-gray-400 italic hover:text-white transition tracking-widest">The Plan</a>
+                <a href="#contact" class="text-[10px] font-black uppercase text-electric-blue italic tracking-widest">Get Quote</a>
+                <a href="https://wa.me/18329181825" target="_blank" class="bg-[#25D366] text-white px-5 py-2.5 rounded-full text-[10px] font-black uppercase italic">WhatsApp</a>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden flex-col bg-black border-b border-white/10 p-8 gap-6 md:hidden">
+            <a href="#mission" class="mobile-link text-xl font-black uppercase italic text-white">Mission</a>
+            <a href="#categories" class="mobile-link text-xl font-black uppercase italic text-white">Catalog</a>
+            <a href="#action-plan" class="mobile-link text-xl font-black uppercase italic text-white">The Plan</a>
+            <a href="#contact" class="mobile-link text-xl font-black uppercase italic text-electric-blue">Get Quote</a>
+            <hr class="border-white/10">
+            <a href="https://wa.me/18329181825" target="_blank" class="bg-[#25D366] text-white text-center px-5 py-4 rounded-2xl text-xs font-black uppercase italic">
+                Message on WhatsApp
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-bg min-h-screen flex items-center pt-24">
+        <div class="max-w-7xl mx-auto px-6 w-full" data-aos="fade-up">
+            <h1 class="text-6xl md:text-9xl font-black uppercase italic leading-[0.9] mb-8">SUPPLY. <br> <span class="text-electric-blue">DELIVERED.</span></h1>
+            <p class="text-gray-400 text-xl max-w-xl mb-12 italic border-l-2 border-electric-blue pl-6">Direct logistics from our Houston hub to your storefront.</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="tel:8329181825" class="bg-white text-black text-center px-12 py-5 rounded-2xl font-black uppercase italic">Call Office</a>
+                <a href="#contact" class="border border-white/20 text-white text-center px-12 py-5 rounded-2xl font-black uppercase italic">Request Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="mission" class="py-32 bg-zinc-950 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-7" data-aos="fade-right">
+                    <h2 class="text-electric-blue font-black uppercase tracking-[0.4em] text-[10px] mb-6 italic">Our Mission</h2>
+                    <p class="text-4xl md:text-5xl font-black uppercase italic mb-8 leading-tight">Bridging manufacturers <br>and local businesses.</p>
+                    <p class="text-gray-400 text-lg italic max-w-lg">We provide a specialized pre-sales model to ensure your storefront is always stocked with high-demand essentials from El Salvador. 🇸🇻</p>
+                </div>
+                <div class="md:col-span-5 bento-item !bg-zinc-900 border-electric-blue/20" data-aos="zoom-in">
+                    <h3 class="text-2xl font-black uppercase italic mb-2">2-Day Promise</h3>
+                    <p class="text-sm italic text-white/50 mb-6 tracking-wide">Reliable delivery within the metropolitan area.</p>
+                    <div class="font-black italic text-electric-blue uppercase text-6xl md:text-7xl">48 HOURS</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="categories" class="py-32 bg-black border-b border-white/5 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-20">
+                <div class="w-full lg:w-[45%]" data-aos="fade-right">
+                    <h2 class="text-5xl md:text-7xl font-black uppercase italic mb-8 leading-none">Product <br><span class="text-electric-blue">Catalog</span></h2>
+                    <p class="text-gray-400 text-lg italic leading-relaxed cat-desc">
+                        Curated selection of <span class="text-white font-bold italic">Salvadoran excellence</span>. From artisan breads to regional beverage favorites, we bridge the gap directly to Houston's storefronts. Click the cards to explore.
+                    </p>
+                </div>
+                <div class="w-full lg:w-[50%] flex justify-center lg:justify-end py-10" data-aos="fade-left">
+                    <div class="deck-wrapper">
+                        <div class="shuffle-card card-1" onclick="focusCard(this)" style="background-image: url('https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=800&auto=format&fit=crop');">
+                            <div class="category-overlay"><p class="text-white font-black uppercase italic text-sm">Artisan Bread</p></div>
+                        </div>
+                        <div class="shuffle-card card-2" onclick="focusCard(this)" style="background-image: url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&w=800&auto=format&fit=crop');">
+                            <div class="category-overlay"><p class="text-white font-black uppercase italic text-sm">Soft Drinks</p></div>
+                        </div>
+                        <div class="shuffle-card card-3" onclick="focusCard(this)" style="background-image: url('https://images.unsplash.com/photo-1610348725531-843dff563e2c?q=80&w=800&auto=format&fit=crop');">
+                            <div class="category-overlay"><p class="text-white font-black uppercase italic text-sm">Fresh Produce</p></div>
+                        </div>
+                        <div class="shuffle-card card-4" onclick="focusCard(this)" style="background-image: url('https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=800&auto=format&fit=crop');">
+                            <div class="category-overlay"><p class="text-white font-black uppercase italic text-sm">Essentials</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="action-plan" class="py-32 bg-zinc-950 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-black uppercase italic mb-20 tracking-tighter">The <span class="text-electric-blue">Process</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bento-item" data-aos="fade-up">
+                    <span class="text-5xl font-black text-white/5 italic">01</span>
+                    <h4 class="text-xl font-black uppercase italic mt-4">Audit</h4>
+                    <p class="text-gray-500 text-sm italic mt-2">Inventory and market demand mapping.</p>
+                </div>
+                <div class="bento-item border-electric-blue/40 !bg-zinc-900" data-aos="fade-up" data-aos-delay="100">
+                    <span class="text-5xl font-black text-electric-blue/20 italic">02</span>
+                    <h4 class="text-xl font-black uppercase italic mt-4">Hub</h4>
+                    <p class="text-gray-400 text-sm italic mt-2">Central logistics via our Houston facility.</p>
+                </div>
+                <div class="bento-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="text-5xl font-black text-white/5 italic">03</span>
+                    <h4 class="text-xl font-black uppercase italic mt-4">Deliver</h4>
+                    <p class="text-gray-500 text-sm italic mt-2">Direct-to-store fulfillment within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-20">
+                <div class="lg:col-span-5" data-aos="fade-right">
+                    <h2 class="text-5xl font-black uppercase italic mb-4">Houston <span class="text-electric-blue">Hub</span></h2>
+                    <p class="text-gray-400 italic text-lg mb-10 hub-desc">Strategically positioned to anchor our 48-hour delivery promise.</p>
+                    <div class="rounded-[2.5rem] overflow-hidden h-[450px] border border-white/10 w-full">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d443089.15546255675!2d-95.70114979848501!3d29.8169993203998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8640b8b4488d8501%3A0xca0d02def365053b!2sHouston%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000" width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) invert(0.9);" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 bento-item !bg-zinc-950 w-full" data-aos="fade-left">
+                    <h3 class="text-3xl font-black uppercase italic mb-10 text-electric-blue">Request A Quote</h3>
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="text" placeholder="Owner Name" class="input-field" required>
+                            <input type="text" placeholder="Business Name" class="input-field" required>
+                        </div>
+                        <input type="text" placeholder="Business Street Address" class="input-field" required>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <input type="email" placeholder="Email Address" class="input-field" required>
+                            <input type="tel" placeholder="Phone Number" class="input-field" required>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <select class="input-field bg-zinc-900 text-gray-400">
+                                <option disabled selected>Business Type</option>
+                                <option>Supermarket</option>
+                                <option>Restaurant</option>
+                                <option>Wholesaler</option>
+                                <option>Convenience Store</option>
+                            </select>
+                            <input type="text" placeholder="Monthly Units Volume" class="input-field">
+                        </div>
+                        <textarea rows="3" placeholder="Additional details..." class="input-field"></textarea>
+                        <button type="submit" class="w-full bg-electric-blue text-white py-5 rounded-2xl font-black uppercase italic hover:bg-white hover:text-black transition-all">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-black border-t border-white/5 text-center">
+        <p class="text-gray-700 text-[10px] font-black uppercase italic tracking-[0.5em]">© 2026 LUZ EZER IMPORTS LLC.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+
+        // Robust Burger Menu Logic
+        const burgerBtn = document.getElementById('burger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        burgerBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = mobileMenu.classList.contains('active');
+            if (isOpen) {
+                mobileMenu.classList.remove('active');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 200);
+            } else {
+                mobileMenu.classList.remove('hidden');
+                setTimeout(() => mobileMenu.classList.add('active'), 1);
+            }
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        function focusCard(card) {
+            document.querySelectorAll('.shuffle-card').forEach(c => c.classList.remove('is-active'));
+            card.classList.add('is-active');
+        }
+    </script>
+</body>
+</html>
