@@ -2,24 +2,24 @@
 
 A high-conversion, dark-themed business inquiry form designed for **Luz Ezer Imports**. This page allows potential business partners (Supermarkets, Restaurants, Wholesalers) to submit their details directly to the administration.
 
-## 🚀 Live Demo
+## Live Demo
 The form is configured to redirect to:
 [https://carlosmelliot.github.io/luz-ezer-imports/](https://carlosmelliot.github.io/luz-ezer-imports/)
 
-## 🛠️ Tech Stack
+## Tech Stack
 * **HTML5 & CSS3**: Semantic structure and custom styling.
 * **Tailwind CSS**: Utility-first framework for responsive layout and spacing.
 * **Formspree**: Serverless backend for handling form submissions and email notifications.
 * **Google Fonts**: High-impact typography (Black, Italic, Uppercase).
 
-## 📋 Features
+## Features
 * **Responsive Design**: Fully optimized for mobile, tablet, and desktop using Tailwind's grid system.
 * **Spam Protection**: Includes a hidden `_gotcha` honeypot field to prevent automated bot submissions.
 * **Dark Mode UI**: A modern Zinc-based aesthetic with "Electric Blue" accents.
 * **Custom Validation**: Mandatory fields for essential business data (Owner, Email, Phone).
 * **Post-Submission Redirect**: Automatically sends users back to the main site upon successful submission.
 
-## ⚙️ Configuration
+## Configuration
 The form is linked to Formspree endpoint `xzdjorbb`. 
 
 ### Form Fields:
@@ -34,7 +34,7 @@ The form is linked to Formspree endpoint `xzdjorbb`.
 | `monthly_volume`| Text | Estimated units per month |
 | `message` | Textarea | Additional details or specific requests |
 
-## 🛠️ Installation & Setup
+## Installation & Setup
 1. Clone the repository:
    ```bash
    git clone [https://github.com/carlosmelliot/luz-ezer-imports.git](https://github.com/carlosmelliot/luz-ezer-imports.git)
